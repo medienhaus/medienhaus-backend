@@ -13,4 +13,16 @@ export class AppController {
   sendSupportMessage (params) {
     return this.appService.sendSupportMessage(params)
   }
+
+  @Post('requestRoom')
+  @Bind(Body())
+  sendRequestRoomMessage (params) {
+    return this.appService.sendRequestRoomMessage(params)
+  }
+
+  @Post('requestAcc')
+  @Bind(Body())
+  sendRequestAccMessage (params) {
+    return this.appService.sendRequestAccMessage(params)
+  }
 }
