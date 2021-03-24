@@ -8,6 +8,10 @@ async function bootstrap () {
     Logger.debug('Attention: Enabling CORS')
     app.enableCors()
   }
+  if (process.env.GLOBAL_URL_PREFIX) {
+    Logger.debug('Setting global prefix to ' + process.env.GLOBAL_URL_PREFIX)
+    app.setGlobalPrefix(process.env.GLOBAL_URL_PREFIX)
+  }
   await app.listen(3001)
 }
 bootstrap()
