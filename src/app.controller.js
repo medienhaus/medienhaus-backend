@@ -1,11 +1,11 @@
-import { Bind, Body, Controller, Dependencies, Get, Param, Post } from '@nestjs/common'
-import { MessengerService } from './messenger.service'
+import { Bind, Body, Controller, Dependencies, Post } from '@nestjs/common'
+import { MatrixService } from './matrix.service'
 
 @Controller('messenger')
-@Dependencies(MessengerService)
+@Dependencies(MatrixService)
 export class AppController {
-  constructor (appService) {
-    this.appService = appService
+  constructor (matrixService) {
+    this.appService = matrixService
   }
 
   @Post('support')
