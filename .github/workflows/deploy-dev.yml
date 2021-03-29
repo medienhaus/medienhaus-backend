@@ -11,12 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2.1.5
-        with:
-          node-version: '15'
-
-      - run: npm clean-install
-
       - uses: up9cloud/action-rsync@v1.1
         env:
           HOST: dev.medienhaus.udk-berlin.de
@@ -33,6 +27,8 @@ jobs:
         uses: fifsky/ssh-action@v0.0.5
         with:
           command: |
+            cd /opt/medienhaus-backend-dev/
+            npm clean-install
             systemctl restart medienhaus-backend.service
           host: dev.medienhaus.udk-berlin.de
           user: root
