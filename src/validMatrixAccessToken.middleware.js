@@ -3,16 +3,16 @@ import * as matrixcs from 'matrix-js-sdk'
 
 // This middleware can be applied in order to check for a valid Matrix Access Token.
 // It expects two headers on the HTTP request to be set:
-// - MEDIENHAUS_MATRIX_USER_ID
-// - MEDIENHAUS_MATRIX_ACCESS_TOKEN
+// - Medienhaus-Matrix-User-Id
+// - Medienhaus-Matrix-Access-Token
 @Injectable()
 export class ValidMatrixAccessTokenMiddleware {
   async use (req, res, next) {
     // Create Matrix client
     const matrixClient = matrixcs.createClient({
       baseUrl: process.env.MATRIX_BASE_URL,
-      accessToken: req.headers.medienhaus_matrix_access_token,
-      userId: req.headers.medienhaus_matrix_user_id,
+      accessToken: req.headers['medienhaus-matrix-access-token'],
+      userId: req.headers['medienhaus-matrix-user-id'],
       useAuthorizationHeader: true
     })
 
