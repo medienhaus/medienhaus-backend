@@ -21,7 +21,6 @@ export class ValidMatrixAccessTokenMiddleware {
       // ... either forward the request, or ...
       next()
     }).catch(function (error) {
-      console.log(error)
       // ... cancel it by throwing an exception.
       throw new UnauthorizedException()
     })
