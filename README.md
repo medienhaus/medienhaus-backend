@@ -21,6 +21,10 @@ The backend is written in JavaScript on top of the [NestJS framework](https://ne
 $ npm install
 ```
 
+### Configuration
+
+Configuration happens via environment variables. To start developing locally just copy the supplied `.env.example` file to `.env` and adjust the values of the variables to your likings.
+
 ### Running the backend
 
 ```bash
