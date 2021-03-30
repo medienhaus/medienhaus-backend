@@ -1,4 +1,4 @@
-<img src="logo.svg" width="80" />
+<img src="logo.svg" width="70" />
 
 ### medienhaus/
 
@@ -6,7 +6,7 @@ Berlin University of the Arts’ free and open-source environment for digital le
 
 [Concept Paper](https://medienhaus.dev/) | [Twitter](https://twitter.com/medienhaus_)
 
-<br><br>
+<br>
 
 # medienhaus-backend
 
