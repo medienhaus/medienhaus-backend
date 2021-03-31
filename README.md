@@ -10,7 +10,7 @@ Berlin University of the Arts’ free and open-source environment for digital le
 
 # medienhaus-backend
 
-This repository holds a minimal backend component for our **medienhaus/** landing hub, which you can find in the [medienhaus-frontend](https://github.com/medienhaus/medienhaus-frontend) repository.
+This repository holds a minimal backend component for our **medienhaus/** React application, which you can find in the [medienhaus-frontend](https://github.com/medienhaus/medienhaus-frontend) repository.
 The backend is written in JavaScript on top of the [NestJS framework](https://nestjs.com/).
 
 ## Development
