@@ -16,7 +16,10 @@
     "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^7.6.15",
     "@nestjs/platform-express": "^7.6.15",
-    "matrix-js-sdk": "^9.7.0",
+    "deepdash": "^5.3.9",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "matrix-js-sdk": "^11.2.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.4"
   },
