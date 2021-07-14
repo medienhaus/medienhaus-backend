@@ -1,4 +1,4 @@
-import { Bind, Body, Controller, Dependencies, Post, Get } from '@nestjs/common'
+import { Bind, Body, Controller, Dependencies, Post } from '@nestjs/common'
 import { MatrixService } from './matrix.service'
 
 @Controller('messenger')
