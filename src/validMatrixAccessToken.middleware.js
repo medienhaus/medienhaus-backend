@@ -5,7 +5,7 @@ import * as matrixcs from 'matrix-js-sdk'
 // It expects two headers on the HTTP request to be set:
 // - Medienhaus-Matrix-User-Id
 // - Medienhaus-Matrix-Access-Token
-// - Medienhaus-Matrix-Server-Url (optional)
+// - Medienhaus-Matrix-Server-Base-Url (optional)
 @Injectable()
 export class ValidMatrixAccessTokenMiddleware {
   async use (req, res, next) {
