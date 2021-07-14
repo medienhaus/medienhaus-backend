@@ -14,6 +14,12 @@ export class AppController {
     return this.appService.sendSupportMessage(params)
   }
 
+  @Post('feedback')
+  @Bind(Body())
+  sendFeedbackMessage (params) {
+    return this.appService.sendFeedbackMessage(params)
+  }
+
   @Post('requestRoom')
   @Bind(Body())
   sendRequestRoomMessage (params) {
