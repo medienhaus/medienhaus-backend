@@ -5,12 +5,21 @@ import * as matrixcs from 'matrix-js-sdk'
 // It expects two headers on the HTTP request to be set:
 // - Medienhaus-Matrix-User-Id
 // - Medienhaus-Matrix-Access-Token
+// - Medienhaus-Matrix-Server-Base-Url (optional)
 @Injectable()
 export class ValidMatrixAccessTokenMiddleware {
   async use (req, res, next) {
+    // By default we check the user against our base Matrix server
+    let matrixServer = process.env.MATRIX_BASE_URL
+    // But if the request provided a Matrix server URL we check the access token against that one, provided it's listed
+    // in our whitelist of servers we allow the backend to communicate with
+    if (req.headers['medienhaus-matrix-base-server-url'] && process.env.MATRIX_SERVER_BASE_URL_WHITELIST.split(',').includes(req.headers['medienhaus-matrix-server-base-url'].substr(8))) {
+      matrixServer = req.headers['medienhaus-matrix-server-base-url']
+    }
+
     // Create Matrix client
     const matrixClient = matrixcs.createClient({
-      baseUrl: process.env.MATRIX_BASE_URL,
+      baseUrl: matrixServer,
       accessToken: req.headers['medienhaus-matrix-access-token'],
       userId: req.headers['medienhaus-matrix-user-id'],
       useAuthorizationHeader: true
@@ -20,7 +29,7 @@ export class ValidMatrixAccessTokenMiddleware {
     await matrixClient.getAccountDataFromServer().then(function () {
       // ... either forward the request, or ...
       next()
-    }).catch(function (error) {
+    }).catch(function () {
       // ... cancel it by throwing an exception.
       throw new UnauthorizedException()
     })
