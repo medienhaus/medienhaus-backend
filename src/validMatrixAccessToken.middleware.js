@@ -29,7 +29,7 @@ export class ValidMatrixAccessTokenMiddleware {
     await matrixClient.getAccountDataFromServer().then(function () {
       // ... either forward the request, or ...
       next()
-    }).catch(function (error) {
+    }).catch(function () {
       // ... cancel it by throwing an exception.
       throw new UnauthorizedException()
     })
