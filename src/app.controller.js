@@ -1,4 +1,4 @@
-import { Bind, Body, Controller, Dependencies, Post } from '@nestjs/common'
+import { Bind, Body, Controller, Dependencies, Post, Get } from '@nestjs/common'
 import { MatrixService } from './matrix.service'
 
 @Controller('messenger')
@@ -12,6 +12,12 @@ export class AppController {
   @Bind(Body())
   sendSupportMessage (params) {
     return this.appService.sendSupportMessage(params)
+  }
+
+  @Post('feedback')
+  @Bind(Body())
+  sendFeedbackMessage (params) {
+    return this.appService.sendFeedbackMessage(params)
   }
 
   @Post('requestRoom')
