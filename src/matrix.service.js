@@ -30,7 +30,7 @@ export class MatrixService {
       msgtype: 'm.text',
       format: 'org.matrix.custom.html',
       body: 'feedback message',
-      formatted_body: 'From: <b>' + params.displayname + '</b>  <br /> Mail address: <b>' + params.mail + '</b><hr /> <b> ' + params.msg + '</b><br />'
+      formatted_body: 'From: <b>' + params.displayname + '</b><hr /> <b> ' + params.msg + '</b><br />'
     }
 
     return matrixClient.sendMessage(process.env.FEEDBACK_CHANNEL_ROOM_ID, message)
