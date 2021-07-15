@@ -13,7 +13,7 @@ export class ValidMatrixAccessTokenMiddleware {
     let matrixServer = process.env.MATRIX_BASE_URL
     // But if the request provided a Matrix server URL we check the access token against that one, provided it's listed
     // in our whitelist of servers we allow the backend to communicate with
-    if (req.headers['medienhaus-matrix-base-server-url'] && process.env.MATRIX_SERVER_BASE_URL_WHITELIST.split(',').includes(req.headers['medienhaus-matrix-server-base-url'].substr(8))) {
+    if (req.headers['medienhaus-matrix-server-base-url'] && process.env.MATRIX_SERVER_BASE_URL_WHITELIST.split(',').includes(req.headers['medienhaus-matrix-server-base-url'].substr(8))) {
       matrixServer = req.headers['medienhaus-matrix-server-base-url']
     }
 
