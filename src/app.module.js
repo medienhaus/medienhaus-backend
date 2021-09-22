@@ -15,5 +15,7 @@ export class AppModule {
     consumer
       .apply(ValidMatrixAccessTokenMiddleware)
       .forRoutes(AppController)
+
+    consumer.apply(ValidMatrixAccessTokenMiddleware).forRoutes({ path: '/rundgang/terms' })
   }
 }
