@@ -25,4 +25,10 @@ export class AppController {
   sendRequestAccMessage (params) {
     return this.appService.sendRequestAccMessage(params)
   }
+
+  @Post('requestContext')
+  @Bind(Body())
+  sendRequestContextMessage (params) {
+    return this.appService.sendRequestContextMessage(params)
+  }
 }

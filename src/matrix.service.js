@@ -47,4 +47,16 @@ export class MatrixService {
 
     return matrixClient.sendMessage(process.env.REQUEST_CHANNEL_ROOM_ID, message)
   }
+
+  sendRequestContextMessage (params) {
+    const matrixClient = this.createMatrixClient(process.env.REQUEST_BOT_USERID, process.env.REQUEST_BOT_ACCESSTOKEN)
+    const message = {
+      msgtype: 'm.text',
+      format: 'org.matrix.custom.html',
+      body: 'support message',
+      formatted_body: 'From: <b>' + params.displayname + '</b><br />Name of context: <b>' + params.context + '</b><br />Supervisor: <b>' + params.supervisor + '</b><br /> Email: <b>' + params.contact + '</b><br /> Parent: <b>' + params.parent + '</b><br />Notes: <b>' + params.msg + '</b><hr />'
+    }
+
+    return matrixClient.sendMessage(process.env.REQUEST_CHANNEL_ROOM_ID, message)
+  }
 }
