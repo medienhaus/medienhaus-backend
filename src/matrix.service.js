@@ -24,6 +24,18 @@ export class MatrixService {
     return matrixClient.sendMessage(process.env.SUPPORT_CHANNEL_ROOM_ID, message)
   }
 
+  sendFeedbackMessage (params) {
+    const matrixClient = this.createMatrixClient(process.env.FEEDBACK_BOT_USERID, process.env.FEEDBACK_BOT_ACCESSTOKEN)
+    const message = {
+      msgtype: 'm.text',
+      format: 'org.matrix.custom.html',
+      body: 'feedback message',
+      formatted_body: 'From: <b>' + params.displayname + '</b><hr /> <b> ' + params.msg + '</b><br />'
+    }
+
+    return matrixClient.sendMessage(process.env.FEEDBACK_CHANNEL_ROOM_ID, message)
+  }
+
   sendRequestRoomMessage (params) {
     const matrixClient = this.createMatrixClient(process.env.REQUEST_BOT_USERID, process.env.REQUEST_BOT_ACCESSTOKEN)
     const message = {
