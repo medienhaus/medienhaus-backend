@@ -13,7 +13,12 @@ export class RundgangController {
   @Get('/terms')
   @Bind(Headers('medienhaus-matrix-user-id'))
   async hasAcceptedTerms (matrixUserId) {
-    const matrixClient = this.appService.createMatrixClient(process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_USERID, process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_ACCESSTOKEN)
+    const matrixClient = this.appService.createMatrixClient(
+      process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_USERID,
+      process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_ACCESSTOKEN,
+      process.env.MATRIX_BASE_URL_CONTENT
+    )
+
     const search = await matrixClient.search({
       body: {
         search_categories: {
@@ -42,8 +47,16 @@ export class RundgangController {
   @Post('/terms')
   @Bind(Headers('medienhaus-matrix-user-id'), Headers('medienhaus-matrix-access-token'), Body('termsRoomId'))
   async acceptTerms (matrixUserId, matrixUserAccessToken, termsRoomId) {
-    const matrixClientBot = this.appService.createMatrixClient(process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_USERID, process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_ACCESSTOKEN)
-    const matrixClientUser = this.appService.createMatrixClient(matrixUserId, matrixUserAccessToken)
+    const matrixClientBot = this.appService.createMatrixClient(
+      process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_USERID,
+      process.env.RUNDGANG_TERMS_AND_CONDITIONS_BOT_ACCESSTOKEN,
+      process.env.MATRIX_BASE_URL_CONTENT
+    )
+    const matrixClientUser = this.appService.createMatrixClient(
+      matrixUserId,
+      matrixUserAccessToken,
+      process.env.MATRIX_BASE_URL_CONTENT
+    )
 
     await matrixClientUser.invite(termsRoomId, matrixClientBot.getUserId()).catch(e => {
       // Ignore the error if it's just telling us that the bot is a member of this room already

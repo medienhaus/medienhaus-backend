@@ -3,9 +3,9 @@ import * as matrixcs from 'matrix-js-sdk'
 
 @Injectable()
 export class MatrixService {
-  createMatrixClient (userId, accessToken) {
+  createMatrixClient (userId, accessToken, baseUrl = process.env.MATRIX_BASE_URL) {
     return matrixcs.createClient({
-      baseUrl: process.env.MATRIX_BASE_URL,
+      baseUrl: baseUrl,
       accessToken: accessToken,
       userId: userId,
       useAuthorizationHeader: true
