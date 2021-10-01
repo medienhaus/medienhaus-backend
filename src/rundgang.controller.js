@@ -74,7 +74,7 @@ export class RundgangController {
   // Make the requesting user knock (and possibly auto-join) on the given context space
   @Post('/knock')
   @Bind(Headers('medienhaus-matrix-user-id'), Headers('medienhaus-matrix-access-token'), Body('contextSpaceId'))
-  async acceptTerms (matrixUserId, matrixUserAccessToken, contextSpaceId) {
+  async knockOnRoom (matrixUserId, matrixUserAccessToken, contextSpaceId) {
     const matrixClientBot = this.appService.createMatrixClient(
       process.env.RUNDGANG_BOT_USERID,
       process.env.RUNDGANG_BOT_ACCESSTOKEN,
