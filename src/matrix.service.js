@@ -41,7 +41,7 @@ export class MatrixService {
     const message = {
       msgtype: 'm.text',
       format: 'org.matrix.custom.html',
-      body: 'support message',
+      body: 'request room',
       formatted_body: 'From: <b>' + params.name + '</b><br />User ID: <b>' + params.displayname + '</b>  <br /> Email: <b>' + params.mail + '</b><br /> Department: <b>' + params.department + '</b><br /> Room name: <b>' + params.room + '</b><br />Notes: <b>' + params.notes + '</b><hr />'
     }
 
@@ -53,7 +53,7 @@ export class MatrixService {
     const message = {
       msgtype: 'm.text',
       format: 'org.matrix.custom.html',
-      body: 'support message',
+      body: 'request account',
       formatted_body: 'From: <b>' + params.name + '</b><br />User ID: <b>' + params.displayname + '</b><br /> Email: <b>' + params.mail + '</b><br /> Department: <b>' + params.department + '</b><br />Account names: <b> ' + params.account + '</b><br />Formatted Names: <b>' + params.formattedNames + '</b>' + '</b><br />Notes: <b>' + params.notes + '</b><hr />'
     }
 
@@ -65,7 +65,7 @@ export class MatrixService {
     const message = {
       msgtype: 'm.text',
       format: 'org.matrix.custom.html',
-      body: 'support message',
+      body: 'request context',
       formatted_body: 'From: <b>' + params.displayname + '</b><br />Name of context: <b>' + params.context + '</b><br />Supervisor: <b>' + params.supervisor + '</b><br /> Email: <b>' + params.contact + '</b><br /> Parent: <b>' + params.parent + '</b><br />Notes: <b>' + params.msg + '</b><hr />'
     }
 
